@@ -67,7 +67,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <!--List<User> selectAll();-->
-  <select id="selectAll" resultType="java.util.List">
+  <select id="selectAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from user

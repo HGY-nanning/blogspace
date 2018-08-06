@@ -19,7 +19,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer saveUser(User user) {
-        return userMapper.insert(user);
+        if(user.getId()!=null){
+            return updateUser(user);
+        }
+        return userMapper.insertSelective(user);
     }
 
     @Override
