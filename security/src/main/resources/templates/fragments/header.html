@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      data-th-fragment="header">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地板</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/blog.css" rel="stylesheet">
+</head>
+<body>
+<nav class="blog-masthead">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/" th:href="@{/}">NewStarBlog</a>
+            <div sec:authorize="isAuthenticated()"  class="row" >
+                <form action="/logout" th:action="@{/logout}" method="post">
+                    <input class="btn btn-outline-success " type="submit" value="退出">
+                </form>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a href="/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">登录</a>
+            </div>
+    </div>
+</nav>
+</body>
+</html>
